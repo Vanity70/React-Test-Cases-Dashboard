@@ -19,117 +19,114 @@
             --shadow: rgba(0,0,0,0.7);
             --glow-gold: rgba(255,215,0,0.6);
         }
-
+        
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
+        body { 
             font-family: 'Inter', -apple-system, sans-serif;
             background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
             color: var(--text-primary);
             min-height: 100vh; padding: 20px; line-height: 1.6;
         }
-
+        
         .container { max-width: 1800px; margin: 0 auto; }
         .header { text-align: center; margin-bottom: 40px; }
-        h1 {
+        h1 { 
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
             font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; margin-bottom: 10px;
-            text-shadow: 0 0 30px var(--glow-gold);
         }
         .subtitle { color: var(--text-secondary); font-size: 1.2rem; font-weight: 300; }
-
-        .global-controls {
-            display: flex; gap: 15px; justify-content: center; align-items: center;
-            margin-bottom: 30px; flex-wrap: wrap;
+        
+        .global-controls { 
+            display: flex; gap: 15px; justify-content: center; align-items: center; 
+            margin-bottom: 30px; flex-wrap: wrap; 
         }
-        #globalSearch {
+        #globalSearch { 
             min-width: 300px; padding: 14px 20px; border: 2px solid transparent;
             border-radius: 50px; background: var(--bg-hover); color: var(--text-primary);
             font-size: 16px; transition: all 0.3s; backdrop-filter: blur(10px);
         }
-        #globalSearch:focus {
+        #globalSearch:focus { 
             border-color: var(--accent-gold); box-shadow: 0 0 30px var(--glow-gold);
             transform: scale(1.02); background: rgba(42,42,42,0.9);
         }
-
-        .tabs-container {
-            display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;
+        
+        .tabs-container { 
+            display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; 
             margin-bottom: 30px; padding: 0 20px;
         }
-        .tab-btn {
-            padding: 14px 28px; background: var(--bg-card); color: var(--text-primary);
-            border: 2px solid var(--border); border-radius: 50px; cursor: pointer;
+        .tab-btn { 
+            padding: 14px 28px; background: var(--bg-card); color: var(--text-primary); 
+            border: 2px solid var(--border); border-radius: 50px; cursor: pointer; 
             font-weight: 600; font-size: 15px; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             box-shadow: 0 8px 25px var(--shadow);
         }
-        .tab-btn:hover {
+        .tab-btn:hover { 
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
             color: var(--bg-primary); transform: translateY(-4px) scale(1.05);
             box-shadow: 0 20px 40px rgba(255,215,0,0.4);
         }
-        .tab-btn.active {
-            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
-            color: var(--bg-primary); border-color: var(--accent-gold);
+        .tab-btn.active { 
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light)); 
+            color: var(--bg-primary); border-color: var(--accent-gold); 
             box-shadow: 0 15px 35px rgba(255,215,0,0.5);
             animation: pulse 2s infinite;
         }
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 15px 35px rgba(255,215,0,0.5); }
-            50% { box-shadow: 0 15px 45px rgba(255,215,0,0.7); }
+        @keyframes pulse { 
+            0%, 100% { box-shadow: 0 15px 35px rgba(255,215,0,0.5); } 
+            50% { box-shadow: 0 15px 45px rgba(255,215,0,0.7); } 
         }
-
-        .test-section {
-            display: none;
-            animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        
+        .test-section { 
+            display: none; 
+            animation: slideIn 0.6s cubic-bezier(0.4, 0, 0.2, 1); 
             position: relative;
         }
         .test-section.active { display: block; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
-
-        /* ✨ ZOLVE LOGIN SECTION - SPECIAL GOLD PATTERN BACKGROUND */
+        
+        /* ✨ LOGIN SECTION WITH LOCAL IMAGE BACKGROUND */
         .login-section {
-            background:
-                linear-gradient(rgba(0,0,0,0.88), rgba(0,0,0,0.88)),
-                .login-section {
-                        background: 
-                            linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),  /* Darker overlay for text readability */
-                            url('7f7c72631c36c5d5.jpg'),  /* Your local image file */
-                            radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08) 0%, transparent 40%),
-                            radial-gradient(circle at 80% 70%, rgba(255,237,74,0.05) 0%, transparent 40%);
-                        background-size: cover, cover, cover, cover;
-                        background-position: center, center, center, center;
-                        background-repeat: no-repeat;
-                        background-attachment: fixed;
-                    }
+            background: 
+                linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
+                url('login-bg.jpg'),
+                radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255,237,74,0.05) 0%, transparent 40%);
+            background-size: cover, cover, cover, cover;
+            background-position: center, center, center, center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        
         .login-section::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background:
+            background: 
                 radial-gradient(circle at 30% 20%, rgba(255,215,0,0.1) 0%, transparent 50%),
                 radial-gradient(circle at 70% 80%, rgba(255,237,74,0.08) 0%, transparent 50%);
             pointer-events: none;
             z-index: 0;
         }
-
+        
         .login-section > * {
             position: relative;
             z-index: 1;
         }
-
-        .section-header {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-bottom: 25px; flex-wrap: wrap; gap: 20px;
+        
+        .section-header { 
+            display: flex; justify-content: space-between; align-items: center; 
+            margin-bottom: 25px; flex-wrap: wrap; gap: 20px; 
         }
-        .section-title {
-            color: var(--accent-gold); font-size: 2rem; font-weight: 700;
+        .section-title { 
+            color: var(--accent-gold); font-size: 2rem; font-weight: 700; 
             background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
-        .stats-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px;
+        .stats-grid { 
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 12px; 
         }
-        .stat-card {
+        .stat-card { 
             background: rgba(255,255,255,0.05); padding: 12px 20px; border-radius: 15px;
             text-align: center; backdrop-filter: blur(10px); border: 1px solid var(--border);
             transition: all 0.3s;
@@ -139,60 +136,59 @@
         .stat-card.happy span { color: #4ade80; }
         .stat-card.negative span { color: #f87171; }
         .stat-card.edge span { color: #facc15; }
-
-        .controls {
-            display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;
+        
+        .controls { 
+            display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; 
         }
-        .section-search, .status-filter {
+        .section-search, .status-filter { 
             padding: 10px 16px; border: 2px solid var(--border); border-radius: 25px;
             background: var(--bg-hover); color: var(--text-primary); font-size: 14px;
             transition: all 0.3s;
         }
-        .section-search:focus, .status-filter:focus {
-            border-color: var(--accent-gold); box-shadow: 0 0 20px var(--glow-gold);
+        .section-search:focus, .status-filter:focus { 
+            border-color: var(--accent-gold); box-shadow: 0 0 20px var(--glow-gold); 
         }
-        .export-btn {
+        .export-btn { 
             padding: 10px 20px; background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-light));
             color: var(--bg-primary); border: none; border-radius: 25px; font-weight: 600;
             cursor: pointer; transition: all 0.3s;
         }
         .export-btn:hover { transform: scale(1.05); box-shadow: 0 10px 25px rgba(255,215,0,0.5); }
-
-        .table-container {
+        
+        .table-container { 
             background: var(--bg-card); border-radius: 20px; overflow: hidden;
             box-shadow: 0 25px 50px var(--shadow); border: 1px solid var(--border);
-            max-height: 70vh;
+            max-height: 70vh; overflow-y: auto;
         }
         table { width: 100%; border-collapse: collapse; }
-        th {
+        th { 
             background: linear-gradient(135deg, #2d2d2d, #3d3d3d, #1d1d1d);
-            color: var(--accent-gold); padding: 16px 12px; text-align: left; font-weight: 600;
+            color: var(--accent-gold); padding: 16px 12px; text-align: left; font-weight: 600; 
             font-size: 13px; position: sticky; top: 0; z-index: 20; border-bottom: 2px solid var(--accent-gold);
             text-shadow: 1px 1px 2px var(--shadow);
         }
-        td {
-            padding: 14px 12px; border-bottom: 1px solid var(--border); font-size: 13px;
+        td { 
+            padding: 14px 12px; border-bottom: 1px solid var(--border); font-size: 13px; 
             white-space: pre-wrap; transition: all 0.2s;
         }
         tr:nth-child(even) { background: rgba(42,42,42,0.5); }
-
-        /* ULTIMATE GLOW HOVER */
-        tr.row-item:hover {
+        
+        tr.row-item:hover { 
             background: rgba(255,215,0,0.15) !important;
             transform: translateY(-2px) scale(1.005);
-            box-shadow:
+            box-shadow: 
                 0 15px 40px var(--glow-gold),
                 inset 0 0 20px rgba(255,215,0,0.2),
                 0 8px 25px var(--shadow);
             border-left: 4px solid var(--accent-gold);
             z-index: 10;
         }
-
+        
         .happy-path { border-left: 4px solid #4ade80; }
         .negative-case { border-left: 4px solid #f87171; }
         .edge-case { border-left: 4px solid #facc15; }
         .normal-case { border-left: 4px solid var(--accent-gold); }
-
+        
         .id { font-family: 'Fira Code', monospace; font-weight: 700; color: var(--accent-gold) !important; }
         .title { font-weight: 500; cursor: pointer; }
         .title:hover { text-decoration: underline; color: var(--accent-gold) !important; }
@@ -200,24 +196,23 @@
         .happy-path .status { background: rgba(74,222,128,0.2); color: #4ade80; }
         .negative-case .status { background: rgba(248,113,113,0.2); color: #f87171; }
         .edge-case .status { background: rgba(250,204,21,0.2); color: #facc15; }
-
-        .no-data {
+        
+        .no-data { 
             text-align: center; padding: 80px 40px; color: var(--text-secondary);
             background: rgba(255,255,255,0.03); border-radius: 20px; border: 2px dashed var(--border);
         }
         .no-data-icon { font-size: 4rem; margin-bottom: 20px; opacity: 0.5; }
         code { background: var(--bg-hover); padding: 4px 8px; border-radius: 6px; font-family: 'Fira Code', monospace; }
-
-        /* Selection Features */
+        
         .select { text-align: center; width: 40px; }
         .row-select { width: 16px; height: 16px; cursor: pointer; }
         tr.selected { background: rgba(255,215,0,0.1) !important; border: 2px solid var(--accent-gold); }
-
-        @media (max-width: 1200px) {
+        
+        @media (max-width: 1200px) { 
             .section-header { flex-direction: column; align-items: flex-start; }
             .stats-grid { grid-template-columns: repeat(2, 1fr); width: 100%; }
         }
-        @media (max-width: 768px) {
+        @media (max-width: 768px) { 
             .tabs-container, .global-controls, .controls { flex-direction: column; align-items: stretch; }
             .tab-btn, #globalSearch { width: 100%; max-width: none; }
             table { font-size: 12px; }
@@ -231,186 +226,312 @@
             <h1>🚀 Zolve React QA Dashboard</h1>
             <p class="subtitle">Professional QA Management Suite • Real-time Analytics • Live Updates</p>
         </div>
-
+        
         <div class="global-controls">
-            <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases (ID, Title, Notes)...">
+            <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases...">
             <div class="global-stats">
-                <span id="globalTotal">0</span> |
-                <span id="globalPass">0</span> Pass |
+                <span id="globalTotal">0</span> | 
+                <span id="globalPass">0</span> Pass | 
                 <span id="globalFail">0</span> Fail
             </div>
         </div>
-
+        
         <div class="tabs-container" id="tabsContainer">
             <button class="tab-btn active" data-section="Login">🛡️ Login</button>
             <button class="tab-btn" data-section="Sign Up">👤 Sign Up</button>
             <button class="tab-btn" data-section="SSO Login">🔐 SSO Login</button>
             <button class="tab-btn" data-section="Profile">📋 Profile</button>
         </div>
-
+        
         <div class="test-sections" id="testSections">
-<div class="test-section login-section" id="section-login">
-    <div class="section-header">
-        <h2 class="section-title">Login Test Cases</h2>
-        <div class="stats-grid">
-            <div class="stat-card total"><span>0</span> Total</div>
-            <div class="stat-card happy"><span>0</span> Happy</div>
-            <div class="stat-card negative"><span>0</span> Negative</div>
-            <div class="stat-card edge"><span>0</span> Edge</div>
-        </div>
-    </div>
-    <div class="controls">
-        <input type="text" class="section-search" placeholder="🔍 Search this section...">
-        <select class="status-filter">
-            <option value="">All Status</option>
-            <option value="happy-path">Happy</option>
-            <option value="negative-case">Negative</option>
-            <option value="edge-case">Edge</option>
-        </select>
-        <button class="export-btn">📤 Export CSV</button>
-    </div>
-    <div class="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th><input type="checkbox" class="select-all"></th>
-                    <th>Test Case ID</th>
-                    <th>Title</th>
-                    <th>Preconditions</th>
-                    <th>Steps</th>
-                    <th>Data</th>
-                    <th>Expected</th>
-                    <th>Actual</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody>
-<tr class="happy-path row-item" data-id="tc_login_001" data-title="valid email and correct password" data-notes="happy path" data-status="happy-path">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_001</td>
-    <td class="title" title="Valid Email and Correct Password">Valid Email and Correct Password</td>
-    <td class="preconditions">Registered email and known password</td>
-    <td class="steps">1. Open app and go to Login screen 2. Enter valid email 3. Enter correct password 4. Tap Login</td>
-    <td class="data">Email:validuser@example.comPassword: P@ssw0rd123</td>
-    <td class="expected">Successful login; redirected to Dashboard; no errors</td>
-    <td class="actual"></td>
-    <td class="status happy-path">HAPPY-PATH</td>
-</tr>
-<tr class="negative-case row-item" data-id="tc_login_003" data-title="invalid email format" data-notes="negative case" data-status="negative-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_003</td>
-    <td class="title" title="Invalid Email Format">Invalid Email Format</td>
-    <td class="preconditions">None</td>
-    <td class="steps">1. Enter invalid email format 2. Enter valid password 3. Tap Login</td>
-    <td class="data">Email: invalid-email Password: Password@123</td>
-    <td class="expected">Error shown: Invalid email format; login blocked</td>
-    <td class="actual">Error: Please enter valid email address; login blocked</td>
-    <td class="status negative-case">NEGATIVE-CASE</td>
-</tr>
-<tr class="negative-case row-item" data-id="tc_login_004" data-title="unregistered email" data-notes="negative case" data-status="negative-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_004</td>
-    <td class="title" title="Unregistered Email">Unregistered Email</td>
-    <td class="preconditions">None</td>
-    <td class="steps">1. Enter unregistered email 2. Enter any password 3. Tap Login</td>
-    <td class="data">Email:nonexistent@example.comPassword: any</td>
-    <td class="expected">Error shown: Email not registered; login blocked</td>
-    <td class="actual">Error: Email and password do not match</td>
-    <td class="status negative-case">NEGATIVE-CASE</td>
-</tr>
-<tr class="negative-case row-item" data-id="tc_login_005" data-title="incorrect password" data-notes="negative case" data-status="negative-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_005</td>
-    <td class="title" title="Incorrect Password">Incorrect Password</td>
-    <td class="preconditions">Valid registered email</td>
-    <td class="steps">1. Enter valid email 2. Enter wrong password 3. Tap Login</td>
-    <td class="data">Email:validuser@example.comPassword: wrongpass</td>
-    <td class="expected">Error shown: Invalid password; login blocked</td>
-    <td class="actual">Error: Email and password do not match, x attempts left</td>
-    <td class="status negative-case">NEGATIVE-CASE</td>
-</tr>
-<tr class="negative-case row-item" data-id="tc_login_006" data-title="empty fields" data-notes="negative case" data-status="negative-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_006</td>
-    <td class="title" title="Empty Fields">Empty Fields</td>
-    <td class="preconditions">None</td>
-    <td class="steps">1. Leave email and password blank 2. Tap Login</td>
-    <td class="data">Email: [blank] Password: [blank]</td>
-    <td class="expected">Error shown for required fields; no submission</td>
-    <td class="actual">Greyed out login cta</td>
-    <td class="status negative-case">NEGATIVE-CASE</td>
-</tr>
-<tr class="edge-case row-item" data-id="tc_login_007" data-title="very long password" data-notes="edge case" data-status="edge-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_007</td>
-    <td class="title" title="Very Long Password">Very Long Password</td>
-    <td class="preconditions">Valid registered email</td>
-    <td class="steps">1. Enter valid email 2. Enter very long password (100+ chars) 3. Tap Login</td>
-    <td class="data">Email:validuser@example.comPassword: (100+ char string)</td>
-    <td class="expected">Error shown: Password too long or truncation; no login</td>
-    <td class="actual">Error: Email and password do not match, x attempts left</td>
-    <td class="status edge-case">EDGE-CASE</td>
-</tr>
-<tr class="edge-case row-item" data-id="tc_login_008" data-title="slow network login" data-notes="edge case" data-status="edge-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_008</td>
-    <td class="title" title="Slow Network Login">Slow Network Login</td>
-    <td class="preconditions">Valid credentials, slow network</td>
-    <td class="steps">1. Throttle network to slow speed 2. Enter valid credentials 3. Tap Login</td>
-    <td class="data">Email:validuser@example.comPassword: P@ssw0rd123</td>
-    <td class="expected">Loading spinner; eventual success or timeout message; no app crash</td>
-    <td class="actual">NA</td>
-    <td class="status edge-case">EDGE-CASE</td>
-</tr>
-<tr class="happy-path row-item" data-id="tc_login_009" data-title="password visibility toggle" data-notes="ui feature" data-status="happy-path">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_009</td>
-    <td class="title" title="Password Visibility Toggle">Password Visibility Toggle</td>
-    <td class="preconditions">None</td>
-    <td class="steps">1. Enter password 2. Toggle visibility icon 3. Toggle back 4. Tap Login</td>
-    <td class="data">Email & password as needed</td>
-    <td class="expected">Password shows/hides on toggle; login successful</td>
-    <td class="actual">Password shows/hides on toggle; login successful</td>
-    <td class="status happy-path">HAPPY-PATH</td>
-</tr>
-<tr class="happy-path row-item" data-id="tc_login_010" data-title="app in background/foreground" data-notes="stability check" data-status="happy-path">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_010</td>
-    <td class="title" title="App in Background/Foreground">App in Background/Foreground</td>
-    <td class="preconditions">Valid credentials</td>
-    <td class="steps">1. Start login input 2. Background app 3. Return and tap Login</td>
-    <td class="data">Email:validuser@example.comPassword: P@ssw0rd123</td>
-    <td class="expected">Input retained; successful login; no data loss</td>
-    <td class="actual">Password shows/hides on toggle; login successful</td>
-    <td class="status happy-path">HAPPY-PATH</td>
-</tr>
-<tr class="normal-case row-item" data-id="tc_login_011" data-title="logout after login" data-notes="post-login scenario" data-status="normal-case">
-    <td class="select"><input type="checkbox" class="row-select"></td>
-    <td class="id">TC_LOGIN_011</td>
-    <td class="title" title="Logout After Login">Logout After Login</td>
-    <td class="preconditions">Logged-in user</td>
-    <td class="steps">1. Login successfully 2. Navigate to Logout 3. Tap Logout</td>
-    <td class="data">N/A</td>
-    <td class="expected">Returns to Login screen; session cleared</td>
-    <td class="actual">Session does not clear and you stay logged in</td>
-    <td class="status normal-case">NORMAL-CASE</td>
-</tr>
-            </tbody>
-        </table>
-    </div>
-</div>
+            <!-- LOGIN SECTION -->
+            <div class="test-section login-section active" id="section-login">
+                <div class="section-header">
+                    <h2 class="section-title">Login Test Cases</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card total"><span>0</span> Total</div>
+                        <div class="stat-card happy"><span>0</span> Happy</div>
+                        <div class="stat-card negative"><span>0</span> Negative</div>
+                        <div class="stat-card edge"><span>0</span> Edge</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <input type="text" class="section-search" placeholder="🔍 Search this section...">
+                    <select class="status-filter">
+                        <option value="">All Status</option>
+                        <option value="happy-path">Happy</option>
+                        <option value="negative-case">Negative</option>
+                        <option value="edge-case">Edge</option>
+                    </select>
+                    <button class="export-btn">📤 Export CSV</button>
+                </div>
+                <div class="table-container">
+                    <table id="login-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="select-all"></th>
+                                <th>Test Case ID</th>
+                                <th>Title</th>
+                                <th>Preconditions</th>
+                                <th>Steps</th>
+                                <th>Data</th>
+                                <th>Expected</th>
+                                <th>Actual</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="happy-path row-item" data-id="tc_login_001" data-title="valid email and correct password" data-notes="happy path" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_001</td>
+                                <td class="title" title="Valid Email and Correct Password">Valid Email and Correct Password</td>
+                                <td class="preconditions">Registered email and known password</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter valid email 3. Enter correct password 4. Tap Login</td>
+                                <td class="data">Email:validuser@example.comPassword: P@ssw0rd123</td>
+                                <td class="expected">Successful login; redirected to Dashboard; no errors</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY-PATH</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_login_003" data-title="invalid email format" data-notes="negative case" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_003</td>
+                                <td class="title" title="Invalid Email Format">Invalid Email Format</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Enter invalid email format 2. Enter valid password 3. Tap Login</td>
+                                <td class="data">Email: invalid-email Password: Password@123</td>
+                                <td class="expected">Error shown: Invalid email format; login blocked</td>
+                                <td class="actual">Error: Please enter valid email address; login blocked</td>
+                                <td class="status negative-case">NEGATIVE-CASE</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_login_004" data-title="unregistered email" data-notes="negative case" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_004</td>
+                                <td class="title" title="Unregistered Email">Unregistered Email</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Enter unregistered email 2. Enter any password 3. Tap Login</td>
+                                <td class="data">Email:nonexistent@example.comPassword: any</td>
+                                <td class="expected">Error shown: Email not registered; login blocked</td>
+                                <td class="actual">Error: Email and password do not match</td>
+                                <td class="status negative-case">NEGATIVE-CASE</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_login_005" data-title="incorrect password" data-notes="negative case" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_005</td>
+                                <td class="title" title="Incorrect Password">Incorrect Password</td>
+                                <td class="preconditions">Valid registered email</td>
+                                <td class="steps">1. Enter valid email 2. Enter wrong password 3. Tap Login</td>
+                                <td class="data">Email:validuser@example.comPassword: wrongpass</td>
+                                <td class="expected">Error shown: Invalid password; login blocked</td>
+                                <td class="actual">Error: Email and password do not match, x attempts left</td>
+                                <td class="status negative-case">NEGATIVE-CASE</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_login_006" data-title="empty fields" data-notes="negative case" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_006</td>
+                                <td class="title" title="Empty Fields">Empty Fields</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Leave email and password blank 2. Tap Login</td>
+                                <td class="data">Email: [blank] Password: [blank]</td>
+                                <td class="expected">Error shown for required fields; no submission</td>
+                                <td class="actual">Greyed out login cta</td>
+                                <td class="status negative-case">NEGATIVE-CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_007" data-title="very long password" data-notes="edge case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_007</td>
+                                <td class="title" title="Very Long Password">Very Long Password</td>
+                                <td class="preconditions">Valid registered email</td>
+                                <td class="steps">1. Enter valid email 2. Enter very long password (100+ chars) 3. Tap Login</td>
+                                <td class="data">Email:validuser@example.comPassword: (100+ char string)</td>
+                                <td class="expected">Error shown: Password too long or truncation; no login</td>
+                                <td class="actual">Error: Email and password do not match, x attempts left</td>
+                                <td class="status edge-case">EDGE-CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_008" data-title="slow network login" data-notes="edge case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_008</td>
+                                <td class="title" title="Slow Network Login">Slow Network Login</td>
+                                <td class="preconditions">Valid credentials, slow network</td>
+                                <td class="steps">1. Throttle network to slow speed 2. Enter valid credentials 3. Tap Login</td>
+                                <td class="data">Email:validuser@example.comPassword: P@ssw0rd123</td>
+                                <td class="expected">Loading spinner; eventual success or timeout message; no app crash</td>
+                                <td class="actual">NA</td>
+                                <td class="status edge-case">EDGE-CASE</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_login_009" data-title="password visibility toggle" data-notes="ui feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_009</td>
+                                <td class="title" title="Password Visibility Toggle">Password Visibility Toggle</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Enter password 2. Toggle visibility icon 3. Toggle back 4. Tap Login</td>
+                                <td class="data">Email & password as needed</td>
+                                <td class="expected">Password shows/hides on toggle; login successful</td>
+                                <td class="actual">Password shows/hides on toggle; login successful</td>
+                                <td class="status happy-path">HAPPY-PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_login_010" data-title="app in background/foreground" data-notes="stability check" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_010</td>
+                                <td class="title" title="App in Background/Foreground">App in Background/Foreground</td>
+                                <td class="preconditions">Valid credentials</td>
+                                <td class="steps">1. Start login input 2. Background app 3. Return and tap Login</td>
+                                <td class="data">Email:validuser@example.comPassword: P@ssw0rd123</td>
+                                <td class="expected">Input retained; successful login; no data loss</td>
+                                <td class="actual">Password shows/hides on toggle; login successful</td>
+                                <td class="status happy-path">HAPPY-PATH</td>
+                            </tr>
+                            <tr class="normal-case row-item" data-id="tc_login_011" data-title="logout after login" data-notes="post-login scenario" data-status="normal-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_011</td>
+                                <td class="title" title="Logout After Login">Logout After Login</td>
+                                <td class="preconditions">Logged-in user</td>
+                                <td class="steps">1. Login successfully 2. Navigate to Logout 3. Tap Logout</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Returns to Login screen; session cleared</td>
+                                <td class="actual">Session does not clear and you stay logged in</td>
+                                <td class="status normal-case">NORMAL-CASE</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SIGN UP SECTION -->
+            <div class="test-section" id="section-sign-up">
+                <div class="section-header">
+                    <h2 class="section-title">Sign Up Test Cases</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card total"><span>0</span> Total</div>
+                        <div class="stat-card happy"><span>0</span> Happy</div>
+                        <div class="stat-card negative"><span>0</span> Negative</div>
+                        <div class="stat-card edge"><span>0</span> Edge</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <input type="text" class="section-search" placeholder="🔍 Search this section...">
+                    <select class="status-filter">
+                        <option value="">All Status</option>
+                        <option value="happy-path">Happy</option>
+                        <option value="negative-case">Negative</option>
+                        <option value="edge-case">Edge</option>
+                    </select>
+                    <button class="export-btn">📤 Export CSV</button>
+                </div>
+                <div class="table-container">
+                    <table id="signup-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="select-all"></th>
+                                <th>Test Case ID</th>
+                                <th>Title</th>
+                                <th>Preconditions</th>
+                                <th>Steps</th>
+                                <th>Data</th>
+                                <th>Expected</th>
+                                <th>Actual</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- SSO LOGIN SECTION -->
+            <div class="test-section" id="section-sso-login">
+                <div class="section-header">
+                    <h2 class="section-title">SSO Login Test Cases</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card total"><span>0</span> Total</div>
+                        <div class="stat-card happy"><span>0</span> Happy</div>
+                        <div class="stat-card negative"><span>0</span> Negative</div>
+                        <div class="stat-card edge"><span>0</span> Edge</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <input type="text" class="section-search" placeholder="🔍 Search this section...">
+                    <select class="status-filter">
+                        <option value="">All Status</option>
+                        <option value="happy-path">Happy</option>
+                        <option value="negative-case">Negative</option>
+                        <option value="edge-case">Edge</option>
+                    </select>
+                    <button class="export-btn">📤 Export CSV</button>
+                </div>
+                <div class="table-container">
+                    <table id="sso-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="select-all"></th>
+                                <th>Test Case ID</th>
+                                <th>Title</th>
+                                <th>Preconditions</th>
+                                <th>Steps</th>
+                                <th>Data</th>
+                                <th>Expected</th>
+                                <th>Actual</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- PROFILE SECTION -->
+            <div class="test-section" id="section-profile">
+                <div class="section-header">
+                    <h2 class="section-title">Profile Test Cases</h2>
+                    <div class="stats-grid">
+                        <div class="stat-card total"><span>0</span> Total</div>
+                        <div class="stat-card happy"><span>0</span> Happy</div>
+                        <div class="stat-card negative"><span>0</span> Negative</div>
+                        <div class="stat-card edge"><span>0</span> Edge</div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <input type="text" class="section-search" placeholder="🔍 Search this section...">
+                    <select class="status-filter">
+                        <option value="">All Status</option>
+                        <option value="happy-path">Happy</option>
+                        <option value="negative-case">Negative</option>
+                        <option value="edge-case">Edge</option>
+                    </select>
+                    <button class="export-btn">📤 Export CSV</button>
+                </div>
+                <div class="table-container">
+                    <table id="profile-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" class="select-all"></th>
+                                <th>Test Case ID</th>
+                                <th>Title</th>
+                                <th>Preconditions</th>
+                                <th>Steps</th>
+                                <th>Data</th>
+                                <th>Expected</th>
+                                <th>Actual</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
     </div>
 
     <script>
-        // Professional dashboard controller
         class TestDashboard {
             constructor() {
                 this.initTabs();
                 this.initSearch();
-                this.initStats();
                 this.initSelection();
                 this.initExport();
+                this.updateStats();
             }
 
             initTabs() {
@@ -431,10 +552,8 @@
                 document.getElementById('globalSearch').addEventListener('input', (e) => {
                     const filter = e.target.value.toLowerCase();
                     document.querySelectorAll('.row-item').forEach(row => {
-                        const id = row.dataset.id || '';
-                        const title = row.dataset.title || '';
-                        const notes = row.dataset.notes || '';
-                        row.style.display = (id.includes(filter) || title.includes(filter) || notes.includes(filter)) ? '' : 'none';
+                        const text = row.textContent.toLowerCase();
+                        row.style.display = text.includes(filter) ? '' : 'none';
                     });
                 });
 
@@ -443,19 +562,28 @@
                         const filter = e.target.value.toLowerCase();
                         const section = search.closest('.test-section');
                         section.querySelectorAll('.row-item').forEach(row => {
-                            const id = row.dataset.id || '';
-                            const title = row.dataset.title || '';
-                            const notes = row.dataset.notes || '';
-                            row.style.display = (id.includes(filter) || title.includes(filter) || notes.includes(filter)) ? '' : 'none';
+                            const text = row.textContent.toLowerCase();
+                            row.style.display = text.includes(filter) ? '' : 'none';
+                        });
+                    });
+                });
+
+                document.querySelectorAll('.status-filter').forEach(filter => {
+                    filter.addEventListener('change', (e) => {
+                        const value = e.target.value;
+                        const section = e.target.closest('.test-section');
+                        section.querySelectorAll('.row-item').forEach(row => {
+                            row.style.display = value === '' || row.classList.contains(value) ? '' : 'none';
                         });
                     });
                 });
             }
 
-            initStats() {
+            updateStats() {
                 document.querySelectorAll('.test-section').forEach(section => {
                     const statCards = section.querySelectorAll('.stat-card');
-                    statCards[0].querySelector('span').textContent = section.querySelectorAll('.row-item').length;
+                    const rows = section.querySelectorAll('.row-item');
+                    statCards[0].querySelector('span').textContent = rows.length;
                     statCards[1].querySelector('span').textContent = section.querySelectorAll('.happy-path').length;
                     statCards[2].querySelector('span').textContent = section.querySelectorAll('.negative-case').length;
                     statCards[3].querySelector('span').textContent = section.querySelectorAll('.edge-case').length;
@@ -466,9 +594,11 @@
             updateGlobalStats() {
                 let total = 0, pass = 0, fail = 0;
                 document.querySelectorAll('.row-item').forEach(row => {
-                    total++;
-                    if (row.classList.contains('happy-path')) pass++;
-                    if (row.classList.contains('negative-case')) fail++;
+                    if (row.style.display !== 'none') {
+                        total++;
+                        if (row.classList.contains('happy-path')) pass++;
+                        if (row.classList.contains('negative-case')) fail++;
+                    }
                 });
                 document.getElementById('globalTotal').textContent = total;
                 document.getElementById('globalPass').textContent = pass;
@@ -498,13 +628,13 @@
                 document.querySelectorAll('.export-btn').forEach(btn => {
                     btn.addEventListener('click', () => {
                         const section = btn.closest('.test-section');
-                        const rows = section.querySelectorAll('tbody tr');
+                        const rows = section.querySelectorAll('tbody tr.row-item');
                         let csv = 'ID,Title,Preconditions,Steps,Data,Expected,Actual,Status\n';
                         rows.forEach(row => {
                             const cells = row.querySelectorAll('td');
-                            if (cells.length > 7) {
-                                csv += Array.from(cells).slice(1).map(cell =>
-                                    `"${cell.textContent.replace(/"/g, '""')}"`
+                            if (cells.length > 1) {
+                                csv += Array.from(cells).slice(1).map(cell => 
+                                    `"${cell.textContent.trim().replace(/"/g, '""')}"`
                                 ).join(',') + '\n';
                             }
                         });
@@ -518,16 +648,6 @@
                 });
             }
         }
-
-        document.querySelectorAll('.status-filter').forEach(filter => {
-            filter.addEventListener('change', (e) => {
-                const value = e.target.value;
-                const section = e.target.closest('.test-section');
-                section.querySelectorAll('.row-item').forEach(row => {
-                    row.style.display = value === '' || row.dataset.status === value ? '' : 'none';
-                });
-            });
-        });
 
         new TestDashboard();
     </script>
