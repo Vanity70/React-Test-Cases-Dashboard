@@ -74,22 +74,49 @@
             line-height: 1.5; white-space: pre-wrap; background: #242424;
         }
         tr:nth-child(even) { background: #2a2a2a; }
-        tr:hover {
-            background: linear-gradient(90deg, #ffd70020, #ffed4a20);
-            transform: scale(1.01); transition: all 0.2s;
-        }
-        .happy-path { border-left: 5px solid #ffd700; }
-        .negative-case { border-left: 5px solid #ff4444; }
-        .edge-case { border-left: 5px solid #ffaa00; }
-        .id { font-family: 'Courier New', monospace; font-weight: bold; color: #ffd700; }
-        .notes { font-style: italic; color: #b0b0b0; }
+        tr:hover table { width: 100%; border-collapse: collapse; min-width: 1200px; }
+             th { 
+                 background: linear-gradient(135deg, #333 0%, #444 50%, #222 100%);
+                 color: #ffd700; padding: 15px 12px; text-align: left; font-weight: 600; 
+                 font-size: 13px; position: sticky; top: 0; z-index: 10;
+                 border-bottom: 2px solid #ffd700; text-shadow: 1px 1px 2px rgba(0,0,0,0.9);
+             }
+             td { 
+                 padding: 12px; border-bottom: 1px solid #333; font-size: 13px; 
+                 line-height: 1.5; white-space: pre-wrap; background: #242424;
+             }
+             tr:nth-child(even) { background: #2a2a2a; }
 
-        @media (max-width: 768px) {
-            .tabs-container { flex-direction: column; align-items: center; }
-            .tab-btn { width: 100%; max-width: 300px; }
-            th, td { padding: 10px 6px; font-size: 12px; }
-            h1 { font-size: 2em; }
-        }
+             /* ✨ GLOWING HOVER EFFECT */
+             tr:hover { 
+                 background: linear-gradient(90deg, #ffd70020, #ffed4a20); 
+                 transform: scale(1.01); 
+                 transition: all 0.3s ease;
+                 box-shadow: 
+                     0 0 20px rgba(255, 215, 0, 0.6),      /* Outer glow */
+                     inset 0 0 20px rgba(255, 215, 0, 0.3),  /* Inner glow */
+                     0 4px 15px rgba(0, 0, 0, 0.5);         /* Drop shadow */
+                 border: 1px solid rgba(255, 215, 0, 0.4);
+             }
+
+             .happy-path:hover { 
+                 box-shadow: 
+                     0 0 25px rgba(255, 215, 0, 0.8),
+                     inset 0 0 25px rgba(255, 215, 0, 0.4),
+                     0 4px 15px rgba(0, 0, 0, 0.5);
+             }
+             .negative-case:hover { 
+                 box-shadow: 
+                     0 0 25px rgba(255, 68, 68, 0.8),
+                     inset 0 0 25px rgba(255, 68, 68, 0.4),
+                     0 4px 15px rgba(0, 0, 0, 0.5);
+             }
+             .edge-case:hover { 
+                 box-shadow: 
+                     0 0 25px rgba(255, 170, 0, 0.8),
+                     inset 0 0 25px rgba(255, 170, 0, 0.4),
+                     0 4px 15px rgba(0, 0, 0, 0.5);
+             }
     </style>
 </head>
 <body>
