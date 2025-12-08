@@ -224,16 +224,11 @@
     <div class="container">
         <div class="header">
             <h1>🚀 Zolve React QA Dashboard</h1>
-            <p class="subtitle">Professional QA Management Suite • Real-time Analytics • Live Updates</p>
+            <p class="subtitle"> QA Suite </p>
         </div>
         
         <div class="global-controls">
-            <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases...">
-            <div class="global-stats">
-                <span id="globalTotal">0</span> | 
-                <span id="globalHappy">0</span> Happy | 
-                <span id="globalNegative">0</span> Negative
-            </div>
+            <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases..."
         </div>
         
         <div class="tabs-container" id="tabsContainer">
@@ -390,6 +385,160 @@
                                 <td class="expected">Returns to Login screen; session cleared</td>
                                 <td class="actual">Session does not clear and you stay logged in</td>
                                 <td class="status normal-case">NORMAL-CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_011" data-title="email with leading/trailing spaces" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_011</td>
+                                <td class="title" title="Email with Leading/Trailing Spaces">Email with Leading/Trailing Spaces</td>
+                                <td class="preconditions">Registered email exists</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter email with leading and trailing spaces in email field (e.g., " validuser@example.com ") 3. Verify email field behavior (trimming or error) 4. Enter valid password in password field 5. Tap Login</td>
+                                <td class="data">Email: " validuser@example.com "</td>
+                                <td class="expected">Email field either trims spaces automatically and logs in successfully, or shows validation error for whitespace; No successful login if spaces are treated as part of email</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_012" data-title="email with uppercase characters" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_012</td>
+                                <td class="title" title="Email with Uppercase Characters">Email with Uppercase Characters</td>
+                                <td class="preconditions">Registered email exists (lowercase variant)</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter registered email in uppercase in email field (e.g., "VALIDUSER@EXAMPLE.COM") 3. Verify email field accepts uppercase and does not show format error 4. Enter correct password in password field 5. Tap Login</td>
+                                <td class="data">Email: VALIDUSER@EXAMPLE.COM</td>
+                                <td class="expected">Email field treats uppercase and lowercase as equivalent (typical email behavior); Successful login, OR system shows case-sensitive error if applicable</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_013" data-title="email with valid special characters" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_013</td>
+                                <td class="title" title="Email with Valid Special Characters">Email with Valid Special Characters</td>
+                                <td class="preconditions">Email with special chars like +, . registered</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter email with valid special characters in email field (e.g., "user+1@example.com" or "user.name@example.com") 3. Verify email field accepts special chars and does not show format error 4. Enter correct password in password field 5. Tap Login</td>
+                                <td class="data">Email: user+1@example.com or user.name@example.com</td>
+                                <td class="expected">Email field accepts valid special characters (+, .); Successful login if credentials are correct</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_014" data-title="password with leading/trailing spaces" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_014</td>
+                                <td class="title" title="Password with Leading/Trailing Spaces">Password with Leading/Trailing Spaces</td>
+                                <td class="preconditions">Valid registered email</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter valid email in email field 3. Enter password with leading and trailing spaces in password field (e.g., " P@ssw0rd123 ") 4. Verify password field masks input and accepts spaces 5. Tap Login</td>
+                                <td class="data">Email: validuser@example.com Password: " P@ssw0rd123 "</td>
+                                <td class="expected">Login fails with "Email and password do not match" OR succeeds if spaces are trimmed by system; Password field behavior should be consistent and documented</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_015" data-title="password minimum length validation" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_015</td>
+                                <td class="title" title="Password Minimum Length Validation">Password Minimum Length Validation</td>
+                                <td class="preconditions">System requires minimum password length (e.g., 8 chars)</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter valid email in email field 3. Enter password at minimum required length (e.g., exactly 8 chars) in password field 4. Verify password field accepts input and masks characters 5. Tap Login</td>
+                                <td class="data">Email: validuser@example.com Password: at minimum length</td>
+                                <td class="expected">Password at minimum length is accepted; If credentials are correct, successful login</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_login_016" data-title="password below minimum length" data-notes="negative-case" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_016</td>
+                                <td class="title" title="Password Below Minimum Length">Password Below Minimum Length</td>
+                                <td class="preconditions">System requires minimum password length (e.g., 8 chars)</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter valid email in email field 3. Enter password below minimum required length (e.g., 7 chars) in password field 4. Verify password field behavior (accepts input or shows error) 5. Attempt to tap Login</td>
+                                <td class="data">Email: validuser@example.com Password: (7 chars)</td>
+                                <td class="expected">If client-side validation: error message shown (e.g., "Password must be at least 8 characters"); Login CTA disabled or error shown on submit</td>
+                                <td class="actual"></td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_017" data-title="password with special characters" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_017</td>
+                                <td class="title" title="Password with Special Characters">Password with Special Characters</td>
+                                <td class="preconditions">Valid registered email</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter valid email in email field 3. Enter password containing special characters (!@#$%^&*) in password field 4. Verify password field masks input correctly 5. Tap Login</td>
+                                <td class="data">Email: validuser@example.com Password: P@ssw0rd123!@#</td>
+                                <td class="expected">Password field accepts special characters and masks them; Successful login if password is correct</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_018" data-title="copy-paste email into email field" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_018</td>
+                                <td class="title" title="Copy-Paste Email into Email Field">Copy-Paste Email into Email Field</td>
+                                <td class="preconditions">Valid registered email</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Copy valid email from external source or clipboard 3. Paste email into email field 4. Verify email field displays pasted value correctly and does not show format error 5. Enter password in password field 6. Tap Login</td>
+                                <td class="data">Email: validuser@example.com (pasted)</td>
+                                <td class="expected">Pasted email is accepted correctly; No corruption or extra characters; Successful login</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="edge-case row-item" data-id="tc_login_019" data-title="copy-paste password into password field" data-notes="edge-case" data-status="edge-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_019</td>
+                                <td class="title" title="Copy-Paste Password into Password Field">Copy-Paste Password into Password Field</td>
+                                <td class="preconditions">Valid registered email</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter valid email in email field 3. Copy password from external source or clipboard 4. Paste password into password field 5. Verify password field masks input correctly 6. Tap Login</td>
+                                <td class="data">Email: validuser@example.com Password: (pasted)</td>
+                                <td class="expected">Pasted password is accepted and masked correctly; No corruption of pasted text; Successful login if password is correct</td>
+                                <td class="actual"></td>
+                                <td class="status edge-case">EDGE CASE</td>
+                            </tr>
+                            <tr class="ui-feature row-item" data-id="tc_login_020" data-title="email field clear/backspace behavior" data-notes="ui-feature" data-status="ui-feature">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_020</td>
+                                <td class="title" title="Email Field Clear/Backspace Behavior">Email Field Clear/Backspace Behavior</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter email in email field 3. Use backspace to delete all characters one by one 4. Verify email field becomes empty and any format error clears 5. Verify Login button is disabled when email field is empty</td>
+                                <td class="data">Email: validuser@example.com</td>
+                                <td class="expected">Email field clears properly; Validation errors disappear when field is empty; Login CTA is disabled</td>
+                                <td class="actual"></td>
+                                <td class="status ui-feature">UI FEATURE</td>
+                            </tr>
+                            <tr class="ui-feature row-item" data-id="tc_login_021" data-title="password field clear/backspace behavior" data-notes="ui-feature" data-status="ui-feature">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_021</td>
+                                <td class="title" title="Password Field Clear/Backspace Behavior">Password Field Clear/Backspace Behavior</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter password in password field 3. Use backspace to delete all characters one by one 4. Verify password field becomes empty; masking is no longer visible 5. Verify Login button is disabled when password field is empty</td>
+                                <td class="data">Password: P@ssw0rd123</td>
+                                <td class="expected">Password field clears properly; All characters are deleted; Login CTA is disabled when field is empty</td>
+                                <td class="actual"></td>
+                                <td class="status ui-feature">UI FEATURE</td>
+                            </tr>
+                            <tr class="ui-feature row-item" data-id="tc_login_022" data-title="email keyboard type verification" data-notes="ui-feature" data-status="ui-feature">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_022</td>
+                                <td class="title" title="Email Keyboard Type Verification">Email Keyboard Type Verification</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Tap on email field 3. Verify correct keyboard type is displayed (email keyboard with @, ., .com shortcuts on mobile) 4. Verify autocorrect and spell-check are disabled for email field 5. Enter email using keyboard</td>
+                                <td class="data">Email: validuser@example.com</td>
+                                <td class="expected">Email keyboard type is displayed; @ symbol is easily accessible; No autocorrect/spell-check suggestions; Email can be entered smoothly</td>
+                                <td class="actual"></td>
+                                <td class="status ui-feature">UI FEATURE</td>
+                            </tr>
+                            <tr class="ui-feature row-item" data-id="tc_login_023" data-title="password keyboard type verification" data-notes="ui-feature" data-status="ui-feature">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_023</td>
+                                <td class="title" title="Password Keyboard Type Verification">Password Keyboard Type Verification</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Enter email in email field 3. Tap on password field 4. Verify correct keyboard type is displayed (password/secure keyboard) 5. Verify no autocorrect, suggestions, or predictive text appears 6. Verify masking/bullet points appear as characters are typed</td>
+                                <td class="data">Email: validuser@example.com</td>
+                                <td class="expected">Password keyboard is displayed (secure/password type); No autocorrect or suggestions; Characters are masked; Login successful</td>
+                                <td class="actual"></td>
+                                <td class="status ui-feature">UI FEATURE</td>
+                            </tr>
+                            <tr class="ui-feature row-item" data-id="tc_login_024" data-title="tab/navigation between email and password fields" data-notes="ui-feature" data-status="ui-feature">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_LOGIN_024</td>
+                                <td class="title" title="Tab/Navigation Between Email and Password Fields">Tab/Navigation Between Email and Password Fields</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Open app and go to Login screen 2. Tap on email field and enter email 3. Press Tab or Next key on keyboard 4. Verify focus moves to password field automatically 5. Enter password 6. Press Tab or Done key 7. Verify focus moves to Login button or field becomes unfocused</td>
+                                <td class="data">Email: validuser@example.com</td>
+                                <td class="expected">Tab navigation works correctly; Focus sequence is email → password → Login button; Successful login when all fields are valid</td>
+                                <td class="actual"></td>
+                                <td class="status ui-feature">UI FEATURE</td>
                             </tr>
                         </tbody>
                     </table>
