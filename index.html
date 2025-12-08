@@ -684,6 +684,424 @@
                             </tr>
                         </thead>
                         <tbody>
+                            <tr class="happy-path row-item" data-id="tc_prof_001" data-title="verify back button navigation" data-notes="navigation" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PROF_001</td>
+                                <td class="title" title="Verify Back Button Navigation">Verify Back Button Navigation</td>
+                                <td class="preconditions">None</td>
+                                <td class="steps">1. Open Profile screen<br>2. Click the back arrow (<) button</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">User should navigate back to the previous screen</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_prof_002" data-title="verify log out functionality" data-notes="authentication" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PROF_002</td>
+                                <td class="title" title="Verify Log Out Functionality">Verify Log Out Functionality</td>
+                                <td class="preconditions">User logged in</td>
+                                <td class="steps">1. Open Profile screen<br>2. Click the "LOG OUT" button</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">User should be logged out and redirected to the login screen</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_email_001" data-title="verify email address display" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_EMAIL_001</td>
+                                <td class="title" title="Verify Email Address Display">Verify Email Address Display</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Locate the email address field in General section</td>
+                                <td class="data">Email: xx@xx.com</td>
+                                <td class="expected">Email address (xx@xx.com) should be displayed correctly</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_email_002" data-title="verify email edit button functionality" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_EMAIL_002</td>
+                                <td class="title" title="Verify Email Edit Button Functionality">Verify Email Edit Button Functionality</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Click the "EDIT" button next to email address</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Edit mode should be activated, allowing user to modify the email address</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_email_003" data-title="verify email edit - save changes" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_EMAIL_003</td>
+                                <td class="title" title="Verify Email Edit - Save Changes">Verify Email Edit - Save Changes</td>
+                                <td class="preconditions">Email in edit mode</td>
+                                <td class="steps">1. Click EDIT on email address<br>2. Enter App PIN<br>3. Enter a new valid email (e.g., newemail@test.com)<br>4. Tap Continue<br>5. Enter code sent to both old and new email</td>
+                                <td class="data">New Email: newemail@test.com</td>
+                                <td class="expected">New email address should be saved and displayed in the profile</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_email_004" data-title="verify email edit - cancel changes" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_EMAIL_004</td>
+                                <td class="title" title="Verify Email Edit - Cancel Changes">Verify Email Edit - Cancel Changes</td>
+                                <td class="preconditions">Email in edit mode</td>
+                                <td class="steps">1. Click EDIT on email address<br>2. Enter the new email<br>3. Tap Cancel button</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Changes should be discarded and original email should remain displayed</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_email_005" data-title="verify email validation - invalid format" data-notes="validation" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_EMAIL_005</td>
+                                <td class="title" title="Verify Email Validation - Invalid Format">Verify Email Validation - Invalid Format</td>
+                                <td class="preconditions">Email in edit mode</td>
+                                <td class="steps">1. Click EDIT on email address<br>2. Enter invalid email (e.g., invalidemail)<br>3. Attempt to save</td>
+                                <td class="data">Invalid Email: invalidemail</td>
+                                <td class="expected">System should display validation error message</td>
+                                <td class="actual"></td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_email_006" data-title="verify email validation - empty field" data-notes="validation" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_EMAIL_006</td>
+                                <td class="title" title="Verify Email Validation - Empty Field">Verify Email Validation - Empty Field</td>
+                                <td class="preconditions">Email in edit mode</td>
+                                <td class="steps">1. Click EDIT on email address<br>2. Leave the email field empty<br>3. Attempt to continue</td>
+                                <td class="data">Email: [blank]</td>
+                                <td class="expected">System should display error message indicating email is required</td>
+                                <td class="actual"></td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_phone_001" data-title="verify phone number display" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_001</td>
+                                <td class="title" title="Verify Phone Number Display">Verify Phone Number Display</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Locate the phone number field in General section</td>
+                                <td class="data">Phone: +1 4445114778<br>Country: US</td>
+                                <td class="expected">Phone number (+1 4445114778) with country flag (US) should be displayed correctly</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_phone_002" data-title="verify phone number edit button functionality" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_002</td>
+                                <td class="title" title="Verify Phone Number Edit Button Functionality">Verify Phone Number Edit Button Functionality</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Click the "EDIT" button next to phone number</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Edit mode should be activated, allowing user to modify the phone number</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_phone_003" data-title="verify phone number edit - save changes" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_003</td>
+                                <td class="title" title="Verify Phone Number Edit - Save Changes">Verify Phone Number Edit - Save Changes</td>
+                                <td class="preconditions">Phone in edit mode</td>
+                                <td class="steps">1. Click EDIT on phone number<br>2. Enter App PIN<br>3. Enter new phone number to a valid format corresponding to the country<br>4. Tap Continue<br>5. Enter code sent to new phone and current email</td>
+                                <td class="data">New Phone: +1 5551234567</td>
+                                <td class="expected">New phone number should be saved and displayed in the profile</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_phone_004" data-title="verify phone number edit - cancel changes" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_004</td>
+                                <td class="title" title="Verify Phone Number Edit - Cancel Changes">Verify Phone Number Edit - Cancel Changes</td>
+                                <td class="preconditions">Phone in edit mode</td>
+                                <td class="steps">1. Click EDIT on phone number<br>2. Enter the number<br>3. Tap Cancel button</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Changes should be discarded and original phone number should remain displayed</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_phone_005" data-title="verify phone number validation - invalid format" data-notes="validation" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_005</td>
+                                <td class="title" title="Verify Phone Number Validation - Invalid Format">Verify Phone Number Validation - Invalid Format</td>
+                                <td class="preconditions">Phone in edit mode</td>
+                                <td class="steps">1. Click EDIT on phone number<br>2. Enter invalid phone number (e.g., 123)<br>3. Attempt to save</td>
+                                <td class="data">Invalid Phone: 123</td>
+                                <td class="expected">System should display validation error message</td>
+                                <td class="actual"></td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_phone_006" data-title="verify phone number validation - empty field" data-notes="validation" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_006</td>
+                                <td class="title" title="Verify Phone Number Validation - Empty Field">Verify Phone Number Validation - Empty Field</td>
+                                <td class="preconditions">Phone in edit mode</td>
+                                <td class="steps">1. Click EDIT on phone number<br>2. Leave the phone field empty<br>3. Attempt to save</td>
+                                <td class="data">Phone: [blank]</td>
+                                <td class="expected">System should display error message indicating phone number is required</td>
+                                <td class="actual"></td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_phone_007" data-title="verify country code selection" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_PHONE_007</td>
+                                <td class="title" title="Verify Country Code Selection">Verify Country Code Selection</td>
+                                <td class="preconditions">Phone in edit mode</td>
+                                <td class="steps">1. Click EDIT on phone number<br>2. Tap on the country flag/code selector</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Country code picker should be displayed allowing selection of different countries</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_ssn_001" data-title="verify ssn display - masked" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SSN_001</td>
+                                <td class="title" title="Verify SSN Display - Masked">Verify SSN Display - Masked</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Locate the SSN number field</td>
+                                <td class="data">SSN: - - - - - - - - -</td>
+                                <td class="expected">SSN should be displayed as masked asterisks (- - - - - - - - -) for security</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_ssn_002" data-title="verify ssn visibility toggle - show" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SSN_002</td>
+                                <td class="title" title="Verify SSN Visibility Toggle - Show">Verify SSN Visibility Toggle - Show</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Locate the eye icon next to SSN field<br>3. Tap the eye icon to toggle visibility<br>4. Enter App PIN</td>
+                                <td class="data">SSN: 123-45-6789</td>
+                                <td class="expected">SSN should be revealed and displayed in plain text</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_ssn_003" data-title="verify ssn visibility toggle - hide" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SSN_003</td>
+                                <td class="title" title="Verify SSN Visibility Toggle - Hide">Verify SSN Visibility Toggle - Hide</td>
+                                <td class="preconditions">SSN is visible</td>
+                                <td class="steps">1. SSN is visible (from TC_SSN_002)<br>2. Tap the eye icon again</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">SSN should be masked back to asterisks (- - - - - - - - -)</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_ssn_004" data-title="verify ssn cannot be edited" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SSN_004</td>
+                                <td class="title" title="Verify SSN Cannot Be Edited">Verify SSN Cannot Be Edited</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Attempt to tap/click on SSN field</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">SSN field should not be editable; no EDIT button should be available</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_ssn_005" data-title="verify ssn persistence after logout" data-notes="security" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SSN_005</td>
+                                <td class="title" title="Verify SSN Persistence After Logout">Verify SSN Persistence After Logout</td>
+                                <td class="preconditions">User logged in</td>
+                                <td class="steps">1. Note the masked SSN display<br>2. Log out and log back in</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">SSN display should remain masked after re-login for security</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_travel_001" data-title="verify travel date display" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_TRAVEL_001</td>
+                                <td class="title" title="Verify Travel Date Display">Verify Travel Date Display</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Locate the Travel Date field in General section</td>
+                                <td class="data">Travel Date: MMM YYYY format</td>
+                                <td class="expected">Travel date should be displayed correctly in MMM YYYY format</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_001" data-title="verify address display" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_001</td>
+                                <td class="title" title="Verify Address Display">Verify Address Display</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Locate the Residential Address field</td>
+                                <td class="data">Address: Full address with country flag</td>
+                                <td class="expected">Full address should be displayed correctly with country flag</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_002" data-title="verify address country flag" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_002</td>
+                                <td class="title" title="Verify Address Country Flag">Verify Address Country Flag</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Check the Residential Address field</td>
+                                <td class="data">Country: US/CAN</td>
+                                <td class="expected">US/Can flag should be displayed indicating United States/Canada</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_003" data-title="verify address is editable" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_003</td>
+                                <td class="title" title="Verify Address is Editable">Verify Address is Editable</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Tap on the Residential Address field</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Edit mode should be activated for the address</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_004" data-title="verify address edit - save changes" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_004</td>
+                                <td class="title" title="Verify Address Edit - Save Changes">Verify Address Edit - Save Changes</td>
+                                <td class="preconditions">Address in edit mode</td>
+                                <td class="steps">1. Tap on Address field<br>2. Modify the address<br>3. Tap Save/Confirm</td>
+                                <td class="data">New Address: Updated address</td>
+                                <td class="expected">New address should be saved and displayed in the profile with review</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_005" data-title="verify address edit - cancel changes" data-notes="ui-feature" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_005</td>
+                                <td class="title" title="Verify Address Edit - Cancel Changes">Verify Address Edit - Cancel Changes</td>
+                                <td class="preconditions">Address in edit mode</td>
+                                <td class="steps">1. Tap on Address field<br>2. Modify the address<br>3. Tap Cancel button</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Changes should be discarded and original address should remain displayed</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_006" data-title="verify address under review status" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_006</td>
+                                <td class="title" title="Verify Address Under Review Status">Verify Address Under Review Status</td>
+                                <td class="preconditions">Address recently modified</td>
+                                <td class="steps">1. Open Profile screen<br>2. Check the address field</td>
+                                <td class="data">Status: Under review</td>
+                                <td class="expected">Review status message should be displayed: "Your address is under review. It will be reviewed in 1-2 business days"</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="negative-case row-item" data-id="tc_address_007" data-title="verify address validation - required fields" data-notes="validation" data-status="negative-case">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_007</td>
+                                <td class="title" title="Verify Address Validation - Required Fields">Verify Address Validation - Required Fields</td>
+                                <td class="preconditions">Address in edit mode</td>
+                                <td class="steps">1. Tap on Address field<br>2. Clear mandatory address fields<br>3. Attempt to save</td>
+                                <td class="data">Address: [incomplete]</td>
+                                <td class="expected">System should display validation error for required fields</td>
+                                <td class="actual"></td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_address_008" data-title="verify address format" data-notes="validation" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_ADDRESS_008</td>
+                                <td class="title" title="Verify Address Format">Verify Address Format</td>
+                                <td class="preconditions">Address in edit mode</td>
+                                <td class="steps">1. Tap on Address field<br>2. Verify address input format</td>
+                                <td class="data">Format: Street, City, State, Zip</td>
+                                <td class="expected">Address should follow standard format: Street, City, State, Zip</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_001" data-title="verify security section display" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_001</td>
+                                <td class="title" title="Verify Security Section Display">Verify Security Section Display</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Scroll to Security section</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Security section should be displayed at the bottom of the General section</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_002" data-title="verify biometric authentication - face id" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_002</td>
+                                <td class="title" title="Verify Biometric Authentication - Face ID">Verify Biometric Authentication - Face ID</td>
+                                <td class="preconditions">Security section accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Navigate to Security section<br>3. Locate Face ID option</td>
+                                <td class="data">Feature: Face ID</td>
+                                <td class="expected">Face ID option should be available for toggle/configuration</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_003" data-title="verify biometric authentication - touch id" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_003</td>
+                                <td class="title" title="Verify Biometric Authentication - Touch ID">Verify Biometric Authentication - Touch ID</td>
+                                <td class="preconditions">Security section accessible</td>
+                                <td class="steps">1. Open Profile screen<br>2. Navigate to Security section<br>3. Locate Touch ID option</td>
+                                <td class="data">Feature: Touch ID</td>
+                                <td class="expected">Touch ID option should be available for toggle/configuration</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_004" data-title="verify security toggle - enable face id" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_004</td>
+                                <td class="title" title="Verify Security Toggle - Enable Face ID">Verify Security Toggle - Enable Face ID</td>
+                                <td class="preconditions">Security section accessible</td>
+                                <td class="steps">1. Open Security section<br>2. Toggle Face ID ON<br>3. Complete facial recognition setup</td>
+                                <td class="data">Status: Enabled</td>
+                                <td class="expected">Face ID should be enabled and system should request facial authentication setup</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_005" data-title="verify security toggle - disable face id" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_005</td>
+                                <td class="title" title="Verify Security Toggle - Disable Face ID">Verify Security Toggle - Disable Face ID</td>
+                                <td class="preconditions">Face ID enabled</td>
+                                <td class="steps">1. Face ID is enabled<br>2. Toggle Face ID OFF</td>
+                                <td class="data">Status: Disabled</td>
+                                <td class="expected">Face ID should be disabled; biometric authentication via Face ID should no longer work</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_006" data-title="verify security toggle - enable touch id" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_006</td>
+                                <td class="title" title="Verify Security Toggle - Enable Touch ID">Verify Security Toggle - Enable Touch ID</td>
+                                <td class="preconditions">Security section accessible</td>
+                                <td class="steps">1. Open Security section<br>2. Toggle Touch ID ON<br>3. Complete fingerprint setup</td>
+                                <td class="data">Status: Enabled</td>
+                                <td class="expected">Touch ID should be enabled and system should request fingerprint authentication setup</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_007" data-title="verify security toggle - disable touch id" data-notes="crud" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_007</td>
+                                <td class="title" title="Verify Security Toggle - Disable Touch ID">Verify Security Toggle - Disable Touch ID</td>
+                                <td class="preconditions">Touch ID enabled</td>
+                                <td class="steps">1. Touch ID is enabled<br>2. Toggle Touch ID OFF</td>
+                                <td class="data">Status: Disabled</td>
+                                <td class="expected">Touch ID should be disabled; biometric authentication via Touch ID should no longer work</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_security_008" data-title="verify security settings persistence" data-notes="persistence" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_SECURITY_008</td>
+                                <td class="title" title="Verify Security Settings Persistence">Verify Security Settings Persistence</td>
+                                <td class="preconditions">Security settings modified</td>
+                                <td class="steps">1. Enable Face ID/Touch ID<br>2. Close and reopen the app</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Security settings should persist after app restart</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
+                            <tr class="happy-path row-item" data-id="tc_delete_001" data-title="verify delete account button display" data-notes="display" data-status="happy-path">
+                                <td class="select"><input type="checkbox" class="row-select"></td>
+                                <td class="id">TC_DELETE_001</td>
+                                <td class="title" title="Verify Delete Account Button Display">Verify Delete Account Button Display</td>
+                                <td class="preconditions">Profile screen accessible</td>
+                                <td class="steps">1. Navigate to Profile screen<br>2. Scroll to the bottom</td>
+                                <td class="data">N/A</td>
+                                <td class="expected">Delete Account option should be visible at the bottom of the profile screen and user should be navigated to a chat interface or support channel</td>
+                                <td class="actual"></td>
+                                <td class="status happy-path">HAPPY PATH</td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
