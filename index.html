@@ -1167,11 +1167,13 @@
             updateStats() {
                 document.querySelectorAll('.test-section').forEach(section => {
                     const statCards = section.querySelectorAll('.stat-card');
-                    const rows = section.querySelectorAll('.row-item');
-                    statCards[0].querySelector('span').textContent = rows.length;
-                    statCards[1].querySelector('span').textContent = section.querySelectorAll('.happy-path').length;
-                    statCards[2].querySelector('span').textContent = section.querySelectorAll('.negative-case').length;
-                    statCards[3].querySelector('span').textContent = section.querySelectorAll('.edge-case').length;
+                    const rows = section.querySelectorAll('.row-item:not([style*="display: none"])');
+               statCards[0].querySelector('span').textContent = rows.length;
+               statCards[1].querySelector('span').textContent = section.querySelectorAll('.happy-path:not([style*="display: none"])').length;
+               statCards[2].querySelector('span').textContent = section.querySelectorAll('.negative-case:not([style*="display: none"])').length;
+               statCards[3].querySelector('span').textContent = section.querySelectorAll('.edge-case:not([style*="display: none"])').length;
+               statCards[4].querySelector('span').textContent = section.querySelectorAll('.UI-Feature:not([style*="display: none"])').length;
+
                 });
                 this.updateGlobalStats();
             }
