@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🚀 Zolve React QA Dashboard v2.0</title>
+    <title>🚀 Zolve React QA Dashboard </title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -38,11 +38,11 @@
 
         .section-title {
             text-align: center;
-            font-size: 32px;  /* Adjust size as needed */
+            font-size: 32px;
             font-weight: 600;
             margin: 20px 0;
-       }
-
+        }
+        
         .subtitle { color: var(--text-secondary); font-size: 1.2rem; font-weight: 300; }
         
         .global-controls { 
@@ -93,15 +93,14 @@
         .test-section.active { display: block; }
         @keyframes slideIn { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
         
-        /* ✨ LOGIN SECTION WITH LOCAL IMAGE BACKGROUND */
+        /* LOGIN SECTION WITH BACKGROUND */
         .login-section {
             background: 
                 linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.9)),
-               url(data:image/jpeg;base64,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)
                 radial-gradient(circle at 20% 30%, rgba(255,215,0,0.08) 0%, transparent 40%),
                 radial-gradient(circle at 80% 70%, rgba(255,237,74,0.05) 0%, transparent 40%);
-            background-size: cover, cover, cover, cover;
-            background-position: center, center, center, center;
+            background-size: cover, cover, cover;
+            background-position: center, center, center;
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
@@ -144,7 +143,7 @@
         .stat-card.happy span { color: #4ade80; }
         .stat-card.negative span { color: #f87171; }
         .stat-card.edge span { color: #facc15; }
-        .stat-card.UI Feature span { color: #1555fa; }
+        .stat-card.UI-Feature span { color: #1555fa; }
         
         .controls { 
             display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; align-items: center; 
@@ -196,7 +195,7 @@
         .happy-path { border-left: 4px solid #4ade80; }
         .negative-case { border-left: 4px solid #f87171; }
         .edge-case { border-left: 4px solid #facc15; }
-        .UI Feature-case { border-left: 4px solid #1555fa; }
+        .UI-Feature { border-left: 4px solid #1555fa; }
         .normal-case { border-left: 4px solid var(--accent-gold); }
         
         .id { font-family: 'Fira Code', monospace; font-weight: 700; color: var(--accent-gold) !important; }
@@ -206,7 +205,7 @@
         .happy-path .status { background: rgba(74,222,128,0.2); color: #4ade80; }
         .negative-case .status { background: rgba(248,113,113,0.2); color: #f87171; }
         .edge-case .status { background: rgba(250,204,21,0.2); color: #facc15; }
-        .UIFeature-case .status { background: rgba(250,204,21,0.2); color: #1555fa; }
+        .UI-Feature .status { background: rgba(250,204,21,0.2); color: #1555fa; }
         
         .no-data { 
             text-align: center; padding: 80px 40px; color: var(--text-secondary);
@@ -235,11 +234,11 @@
     <div class="container">
         <div class="header">
             <h1>🚀 Zolve React QA Dashboard</h1>
-            <p class="subtitle"> QA Suite </p>
+            <p class="subtitle">QA Test Suite</p>
         </div>
         
         <div class="global-controls">
-            <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases..."
+            <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases...">
         </div>
         
         <div class="tabs-container" id="tabsContainer">
@@ -259,7 +258,7 @@
                         <div class="stat-card happy"><span>0</span> Happy</div>
                         <div class="stat-card negative"><span>0</span> Negative</div>
                         <div class="stat-card edge"><span>0</span> Edge</div>
-                        <div class="stat-card UI Feature"><span>0</span> Edge</div>
+                        <div class="stat-card UI-Feature"><span>0</span> UI Feature</div>
                     </div>
                 </div>
                 <div class="controls">
