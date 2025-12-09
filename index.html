@@ -63,6 +63,10 @@
             display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; 
             margin-bottom: 30px; padding: 0 20px;
         }
+        .global-stats {
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 12px;
+            margin-bottom: 20px; padding: 0 20px;
+        }
         .tab-btn { 
             padding: 14px 28px; background: var(--bg-card); color: var(--text-primary); 
             border: 2px solid var(--border); border-radius: 50px; cursor: pointer; 
@@ -240,6 +244,11 @@
         <div class="global-controls">
             <input type="text" id="globalSearch" placeholder="🔍 Global search across all test cases...">
         </div>
+        <div class="global-stats">
+            <div class="stat-card total"><span id="globalTotal">0</span> Visible</div>
+            <div class="stat-card happy"><span id="globalPass">0</span> Happy</div>
+            <div class="stat-card negative"><span id="globalFail">0</span> Negative</div>
+        </div>
         
         <div class="tabs-container" id="tabsContainer">
             <button class="tab-btn active" data-section="Login">🛡️ Login</button>
@@ -284,7 +293,7 @@
                                 <th>Data</th>
                                 <th>Expected</th>
                                 <th>Actual</th>
-                                <th>Type</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -297,7 +306,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: P@ssw0rd123</td>
                                 <td class="expected">Successful login; redirected to Dashboard; no errors</td>
                                 <td class="actual"></td>
-                                <td class="Type happy-path">HAPPY PATH</td>
+                                <td class="status happy-path">HAPPY PATH</td>
                             </tr>
                             <tr class="negative-case row-item" data-id="tc_login_003" data-title="invalid email format" data-notes="negative-case" data-status="negative-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -308,7 +317,7 @@
                                 <td class="data">Email: invalid-email<br>Password: Password@123</td>
                                 <td class="expected">Error shown: Invalid email format; login blocked</td>
                                 <td class="actual">Error: Please enter valid email address; login blocked</td>
-                                <td class="Type negative-case">NEGATIVE CASE</td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
                             </tr>
                             <tr class="negative-case row-item" data-id="tc_login_004" data-title="unregistered email" data-notes="negative-case" data-status="negative-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -319,7 +328,7 @@
                                 <td class="data">Email: nonexistent@example.com<br>Password: any</td>
                                 <td class="expected">Error shown: Email not registered; login blocked</td>
                                 <td class="actual">Error: Email and password do not match</td>
-                                <td class="Type negative-case">NEGATIVE CASE</td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
                             </tr>
                             <tr class="negative-case row-item" data-id="tc_login_005" data-title="incorrect password" data-notes="negative-case" data-status="negative-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -330,7 +339,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: wrongpass</td>
                                 <td class="expected">Error shown: Invalid password; login blocked</td>
                                 <td class="actual">Error: Email and password do not match, x attempts left</td>
-                                <td class="Type negative-case">NEGATIVE CASE</td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
                             </tr>
                             <tr class="negative-case row-item" data-id="tc_login_006" data-title="empty fields" data-notes="negative-case" data-status="negative-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -341,7 +350,7 @@
                                 <td class="data">Email: [blank]<br>Password: [blank]</td>
                                 <td class="expected">Error shown for required fields; no submission</td>
                                 <td class="actual">Greyed out login cta</td>
-                                <td class="Type negative-case">NEGATIVE CASE</td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_007" data-title="very long password" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -352,7 +361,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: (100+ char string)</td>
                                 <td class="expected">Error shown: Password too long or truncation; no login</td>
                                 <td class="actual">Error: Email and password do not match, x attempts left</td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_008" data-title="slow network login" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -363,7 +372,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: P@ssw0rd123</td>
                                 <td class="expected">Loading spinner; eventual success or timeout message; no app crash</td>
                                 <td class="actual">NA</td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="happy-path row-item" data-id="tc_login_009" data-title="password visibility toggle" data-notes="ui-feature" data-status="happy-path">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -374,7 +383,7 @@
                                 <td class="data">Email & password as needed</td>
                                 <td class="expected">Password shows/hides on toggle; login successful</td>
                                 <td class="actual">Password shows/hides on toggle; login successful</td>
-                                <td class="Type happy-path">HAPPY PATH</td>
+                                <td class="status happy-path">HAPPY PATH</td>
                             </tr>
                             <tr class="happy-path row-item" data-id="tc_login_010" data-title="app in background/foreground" data-notes="stability-check" data-status="happy-path">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -385,7 +394,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: P@ssw0rd123</td>
                                 <td class="expected">Input retained; successful login; no data loss</td>
                                 <td class="actual">Password shows/hides on toggle; login successful</td>
-                                <td class="Type happy-path">HAPPY PATH</td>
+                                <td class="status happy-path">HAPPY PATH</td>
                             </tr>
                             <tr class="normal-case row-item" data-id="tc_login_011" data-title="logout after login" data-notes="post-login-scenario" data-status="normal-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -396,7 +405,7 @@
                                 <td class="data">N/A</td>
                                 <td class="expected">Returns to Login screen; session cleared</td>
                                 <td class="actual">Session does not clear and you stay logged in</td>
-                                <td class="Type normal-case">NORMAL CASE</td>
+                                <td class="status normal-case">NORMAL CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_011a" data-title="email with leading/trailing spaces" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -407,7 +416,7 @@
                                 <td class="data">Email: " validuser@example.com "</td>
                                 <td class="expected">Email field either trims spaces automatically and logs in successfully, or shows validation error for whitespace; No successful login if spaces are treated as part of email</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_012" data-title="email with uppercase characters" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -418,7 +427,7 @@
                                 <td class="data">Email: VALIDUSER@EXAMPLE.COM</td>
                                 <td class="expected">Email field treats uppercase and lowercase as equivalent (typical email behavior); Successful login, OR system shows case-sensitive error if applicable</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_013" data-title="email with valid special characters" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -429,7 +438,7 @@
                                 <td class="data">Email: user+1@example.com or user.name@example.com</td>
                                 <td class="expected">Email field accepts valid special characters (+, .); Successful login if credentials are correct</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_014" data-title="password with leading/trailing spaces" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -440,7 +449,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: " P@ssw0rd123 "</td>
                                 <td class="expected">Login fails with "Email and password do not match" OR succeeds if spaces are trimmed by system; Password field behavior should be consistent and documented</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_015" data-title="password minimum length validation" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -451,7 +460,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: at minimum length</td>
                                 <td class="expected">Password at minimum length is accepted; If credentials are correct, successful login</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="negative-case row-item" data-id="tc_login_016" data-title="password below minimum length" data-notes="negative-case" data-status="negative-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -462,7 +471,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: (7 chars)</td>
                                 <td class="expected">If client-side validation: error message shown (e.g., "Password must be at least 8 characters"); Login CTA disabled or error shown on submit</td>
                                 <td class="actual"></td>
-                                <td class="Type negative-case">NEGATIVE CASE</td>
+                                <td class="status negative-case">NEGATIVE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_017" data-title="password with special characters" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -473,7 +482,7 @@
                                 <td class="data">Email: validuser@example.com<br>Password: P@ssw0rd123!@#</td>
                                 <td class="expected">Password field accepts special characters and masks them; Successful login if password is correct</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_018" data-title="copy-paste email into email field" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -484,7 +493,7 @@
                                 <td class="data">Email: validuser@example.com (pasted)</td>
                                 <td class="expected">Pasted email is accepted correctly; No corruption or extra characters; Successful login</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
                             <tr class="edge-case row-item" data-id="tc_login_019" data-title="copy-paste password into password field" data-notes="edge-case" data-status="edge-case">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
@@ -495,9 +504,9 @@
                                 <td class="data">Email: validuser@example.com<br>Password: (pasted)</td>
                                 <td class="expected">Pasted password is accepted and masked correctly; No corruption of pasted text; Successful login if password is correct</td>
                                 <td class="actual"></td>
-                                <td class="Type edge-case">EDGE CASE</td>
+                                <td class="status edge-case">EDGE CASE</td>
                             </tr>
-                            <tr class="ui-feature row-item" data-id="tc_login_020" data-title="email field clear/backspace behavior" data-notes="ui-feature" data-status="ui-feature">
+                            <tr class="UI-Feature row-item" data-id="tc_login_020" data-title="email field clear/backspace behavior" data-notes="ui-feature" data-status="UI-Feature">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
                                 <td class="id">TC_LOGIN_020</td>
                                 <td class="title" title="Email Field Clear/Backspace Behavior">Email Field Clear/Backspace Behavior</td>
@@ -506,9 +515,9 @@
                                 <td class="data">Email: validuser@example.com</td>
                                 <td class="expected">Email field clears properly; Validation errors disappear when field is empty; Login CTA is disabled</td>
                                 <td class="actual"></td>
-                                <td class="Type ui-feature">UI FEATURE</td>
+                                <td class="status UI-Feature">UI FEATURE</td>
                             </tr>
-                            <tr class="ui-feature row-item" data-id="tc_login_021" data-title="password field clear/backspace behavior" data-notes="ui-feature" data-status="ui-feature">
+                            <tr class="UI-Feature row-item" data-id="tc_login_021" data-title="password field clear/backspace behavior" data-notes="ui-feature" data-status="UI-Feature">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
                                 <td class="id">TC_LOGIN_021</td>
                                 <td class="title" title="Password Field Clear/Backspace Behavior">Password Field Clear/Backspace Behavior</td>
@@ -517,9 +526,9 @@
                                 <td class="data">Password: P@ssw0rd123</td>
                                 <td class="expected">Password field clears properly; All characters are deleted; Login CTA is disabled when field is empty</td>
                                 <td class="actual"></td>
-                                <td class="Type ui-feature">UI FEATURE</td>
+                                <td class="status UI-Feature">UI FEATURE</td>
                             </tr>
-                            <tr class="ui-feature row-item" data-id="tc_login_022" data-title="email keyboard type verification" data-notes="ui-feature" data-status="ui-feature">
+                            <tr class="UI-Feature row-item" data-id="tc_login_022" data-title="email keyboard type verification" data-notes="ui-feature" data-status="UI-Feature">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
                                 <td class="id">TC_LOGIN_022</td>
                                 <td class="title" title="Email Keyboard Type Verification">Email Keyboard Type Verification</td>
@@ -528,9 +537,9 @@
                                 <td class="data">Email: validuser@example.com</td>
                                 <td class="expected">Email keyboard type is displayed; @ symbol is easily accessible; No autocorrect/spell-check suggestions; Email can be entered smoothly</td>
                                 <td class="actual"></td>
-                                <td class="Type ui-feature">UI FEATURE</td>
+                                <td class="status UI-Feature">UI FEATURE</td>
                             </tr>
-                            <tr class="ui-feature row-item" data-id="tc_login_023" data-title="password keyboard type verification" data-notes="ui-feature" data-status="ui-feature">
+                            <tr class="UI-Feature row-item" data-id="tc_login_023" data-title="password keyboard type verification" data-notes="ui-feature" data-status="UI-Feature">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
                                 <td class="id">TC_LOGIN_023</td>
                                 <td class="title" title="Password Keyboard Type Verification">Password Keyboard Type Verification</td>
@@ -539,9 +548,9 @@
                                 <td class="data">Email: validuser@example.com</td>
                                 <td class="expected">Password keyboard is displayed (secure/password type); No autocorrect or suggestions; Characters are masked; Login successful</td>
                                 <td class="actual"></td>
-                                <td class="Type ui-feature">UI FEATURE</td>
+                                <td class="status UI-Feature">UI FEATURE</td>
                             </tr>
-                            <tr class="ui-feature row-item" data-id="tc_login_024" data-title="tab/navigation between email and password fields" data-notes="ui-feature" data-status="ui-feature">
+                            <tr class="UI-Feature row-item" data-id="tc_login_024" data-title="tab/navigation between email and password fields" data-notes="ui-feature" data-status="UI-Feature">
                                 <td class="select"><input type="checkbox" class="row-select"></td>
                                 <td class="id">TC_LOGIN_024</td>
                                 <td class="title" title="Tab/Navigation Between Email and Password Fields">Tab/Navigation Between Email and Password Fields</td>
@@ -550,7 +559,7 @@
                                 <td class="data">Email: validuser@example.com</td>
                                 <td class="expected">Tab navigation works correctly; Focus sequence is email → password → Login button; Successful login when all fields are valid</td>
                                 <td class="actual"></td>
-                                <td class="Type ui-feature">UI FEATURE</td>
+                                <td class="status UI-Feature">UI FEATURE</td>
                             </tr>
                         </tbody>
                     </table>
